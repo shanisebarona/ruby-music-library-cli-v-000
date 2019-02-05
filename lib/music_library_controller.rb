@@ -28,14 +28,15 @@ class MusicLibraryController
     end
   end
   
-  def list_songs
+ def list_songs
     alpha = Song.all.map.sort_by { |song| song.name } # sorts
     num = [] # new array to hold subarray artist, song name, genre strings
-    alpha.map do |song|
-      num << [song.artist.name, song.name, song.genre.name]
-    end
+      alpha.map do |song|
+        num << [song.artist.name, song.name, song.genre.name]
+      end
     num.each_with_index do |name, index| 
       puts "#{index + 1}. #{name.join(" - ")}"
+      binding.pry
     end
   end
   
